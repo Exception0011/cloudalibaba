@@ -1,0 +1,23 @@
+server:
+  port: 80
+
+
+spring:
+  application:
+    # 微服务名字
+    name: consumer-order
+  cloud:
+    nacos:
+      discovery:
+        # Nacos服务地址
+        server-addr: 192.168.31.101:8848
+feign:
+  sentinel:
+    enabled: true
+  client:
+    config:
+      default:
+        # ⽹络连接阶段1秒超时
+        connectTimeout: 1000
+        # 服务请求响应阶段2秒超时
+        readTimeout: 2000

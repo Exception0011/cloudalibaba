@@ -1,0 +1,24 @@
+server:
+  port: 6001
+spring:
+  application:
+    name: seata-bank1
+  cloud:
+    nacos:
+      discovery:
+        # Nacos server地址
+        server-addr: 192.168.31.101:8848
+  datasource:
+    url: jdbc:mysql://192.168.31.101:3306/bank1?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+seata:
+  # 注册中心
+  registry:
+    type: file
+  service:
+    # seata服务端的地址和端口信息，多个使用英文分号分隔
+    grouplist:
+      default: 192.168.31.101:9999
+  tx-service-group: my_test_tx_group

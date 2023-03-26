@@ -1,0 +1,21 @@
+
+spring:
+  application:
+    name: consumer-order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.31.101:8848
+      config:
+        #服务器地址
+        server-addr: 192.168.31.101:8848
+        #默认为Public命名空间,可以省略不写 #对应建立的命名空间的UUID
+        namespace: 3db27b6f-4d95-4cee-a04c-f0a7bcc728e4
+        #指定文件后缀
+        file-extension: yaml
+        #文件名 -- 如果没有配置则默认为 ${spring.appliction.name}
+        prefix: consumer-order
+        #指定配置群组 --如果是Public命名空间 则可以省略群组配置
+        group: DEFAULT_GROUP
+  profiles:
+    active: prod

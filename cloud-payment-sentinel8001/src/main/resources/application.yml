@@ -1,0 +1,24 @@
+server:
+  port: 8001
+
+
+spring:
+  application:
+    #应用名字
+    name: cloud-sentinel-payment
+  cloud:
+    nacos:
+      discovery:
+        # Nacos地址
+        server-addr: 192.168.31.101:8848
+    sentinel:
+      transport:
+        # Sentinel 控制台地址
+        dashboard: 192.168.31.101:8878
+        # sentinel api端⼝，默认8719
+        port: 8719
+        client-ip: 192.168.31.223
+      # 关闭context整合
+      web-context-unify: false
+
+

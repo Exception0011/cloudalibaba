@@ -1,0 +1,17 @@
+server:
+  port: 80
+
+
+spring:
+  application:
+    # 微服务名字
+    name: consumer-order
+  cloud:
+    nacos:
+      discovery:
+        # Nacos服务地址
+        server-addr: 192.168.31.101:8848
+# 日志格式
+logging:
+  pattern:
+    console: '%d{HH:mm:ss.SSS}%clr(%-5level) --- [%-15thread]%cyan(%-50logger{50}):%msg%n'

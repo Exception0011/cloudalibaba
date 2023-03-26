@@ -1,0 +1,29 @@
+server:
+  port: 8001
+spring:
+  main:
+    allow-bean-definition-overriding: true
+    allow-circular-references: true
+  application:
+    name: provider-dubbo-payment
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.31.101:8848
+
+#dubbo配置
+dubbo:
+  scan:
+    base-packages: com.huangkai.service
+  registry:
+    address: nacos://192.168.31.101:8848
+    timeout: 10000
+  protocol:
+    name: dubbo
+    port: -1
+
+
+# 日志格式
+logging:
+  pattern:
+    console: '%d{HH:mm:ss.SSS}%clr(%-5level) --- [%-15thread]%cyan(%-50logger{50}):%msg%n'

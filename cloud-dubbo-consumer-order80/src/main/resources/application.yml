@@ -1,0 +1,36 @@
+server:
+  port: 80
+
+
+spring:
+  main:
+    allow-circular-references: true
+    #在 Spring Boot 2.1 以及更高的版本增加该设定，因为 Spring Boot 默认调整了 Bean 定义覆盖行为。
+    allow-bean-definition-overriding: true
+  application:
+    #应用名字
+    name: consumer-dubbo-order
+  cloud:
+    nacos:
+      discovery:
+        #Nacos地址
+        server-addr: 192.168.31.101:8848
+
+
+#dubbo配置
+dubbo:
+  cloud:
+    #dubbo.cloud.subscribed-services：表示要订阅服务的服务名，可以配置'*'，代表订阅所有服务，不推荐使用。若需订阅多应用，使用 "," 分割。
+    subscribed-services: "*"
+  registry:
+    # 注册至Nacos
+    address: nacos://192.168.31.101:8848
+    # 超时时间
+    timeout: 10000
+  protocol:
+    # 协议Dubbo
+    name: dubbo
+    # 端口号
+    port: -1
+  consumer:
+    check: false
